@@ -4,12 +4,12 @@
 window.APP_CONFIG = {
   APP_NAME: 'Toolkit: Inspiration',
   TAGLINE: 'To God be the Glory',
-  VERSION: '1.0.0',
+  VERSION: '1.1.0',
   ENVIRONMENT: 'live',            // 'live' or 'staging' (staging shows a small badge)
 
   // From Supabase: Project Settings > API. Leave both blank to run in local-only test mode.
-  SUPABASE_URL: 'https://kzbqprhccmnnlvizvsry.supabase.co',
-  SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6YnFwcmhjY21ubmx2aXp2c3J5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE1OTA5MDksImV4cCI6MjEwNzE2NjkwOX0.y9x-SJsWoyNcua5gN5UVNZoE-xB7o2ARfDgFDu18ZaQ',
+  SUPABASE_URL: '',
+  SUPABASE_ANON_KEY: '',
 
   // Days between backup reminders
   BACKUP_REMINDER_DAYS: 30,

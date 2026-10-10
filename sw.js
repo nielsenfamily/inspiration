@@ -3,7 +3,8 @@
 const CACHE = 'inspiration-app';
 const CORE = ['./', 'index.html', 'manifest.webmanifest', 'css/app.css', 'fonts/fonts.css', 'lib/quill.js', 'lib/quill.core.css',
   'lib/supabase.js', 'lib/docx.min.js', 'lib/mammoth.min.js', 'js/config.js', 'js/store.js', 'js/sync.js', 'js/scenes.js',
-  'js/app.js', 'js/editor.js', 'js/transfer.js', 'img/icon.svg', 'img/icon-192.png', 'img/icon-512.png'];
+  'js/app.js', 'js/editor.js', 'js/transfer.js', 'js/atlas.js', 'js/grammar.js', 'js/bible.js', 'js/designs.js', 'js/business.js',
+  'templates/index.json', 'templates/scripture-card.json', 'templates/title-page.json', 'templates/query-letter.json', 'data/bible/books.json', 'img/icon.svg', 'img/icon-192.png', 'img/icon-512.png'];
 
 self.addEventListener('install', event => {
   event.waitUntil((async () => {
@@ -33,8 +34,8 @@ self.addEventListener('fetch', event => {
   const url = new URL(req.url);
   if (req.method !== 'GET' || url.origin !== location.origin) return; // database calls go straight through
 
-  // Libraries, fonts, backgrounds and icons never change: use the saved copy first
-  if (/\/(lib|fonts|backgrounds|img)\//.test(url.pathname)) {
+  // Libraries, fonts, Bible data, backgrounds and icons never change: use the saved copy first
+  if (/\/(lib|fonts|backgrounds|img|data)\//.test(url.pathname)) {
     event.respondWith(caches.match(req).then(hit => hit || fetch(req).then(res => {
       if (res.ok) { const copy = res.clone(); caches.open(CACHE).then(c => c.put(req, copy)); }
       return res;

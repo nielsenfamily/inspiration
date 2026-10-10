@@ -1,0 +1,29 @@
+{
+  "id": "query-letter",
+  "name": "Query letter",
+  "description": "A one-page letter to a literary agent with a simple letterhead you can style.",
+  "page": { "width": 8.5, "height": 11 },
+  "fields": [
+    { "key": "penName", "label": "Name on the letterhead", "type": "text", "default": "K.E. Nielsen", "source": "prefs.penName" },
+    { "key": "contact", "label": "Contact line", "type": "text", "default": "email@example.com" },
+    { "key": "date", "label": "Date", "type": "text", "default": "" },
+    { "key": "agent", "label": "Dear…", "type": "text", "default": "Dear Ms. Agent," },
+    { "key": "hook", "label": "Opening (why this agent, and the book in a sentence)", "type": "textarea", "default": "I am seeking representation for TITLE, a complete 80,000-word novel. Because you represent stories with faith and heart, I hope it will be a good fit for your list." },
+    { "key": "pitch", "label": "The story", "type": "textarea", "default": "Who the main character is, what she wants, what stands in her way, and what she stands to lose." },
+    { "key": "bio", "label": "About you", "type": "textarea", "default": "A few sentences about you and why you are the one to tell this story." },
+    { "key": "closing", "label": "Closing", "type": "textarea", "default": "Thank you for your time and consideration. The full manuscript is available on request." },
+    { "key": "signoff", "label": "Sign-off", "type": "text", "default": "Sincerely," },
+    { "key": "signature", "label": "Signature name", "type": "text", "default": "Kayla Nielsen" }
+  ],
+  "design": [
+    { "key": "font", "label": "Typeface", "type": "font", "default": "EB Garamond" },
+    { "key": "accent", "label": "Accent color", "type": "color", "default": "#2f4636", "swatches": ["#2f4636", "#6b2f2a", "#2d3a52", "#9c7629", "#2b2620"] },
+    { "key": "align", "label": "Letterhead", "type": "choice", "default": "center",
+      "options": [ { "value": "center", "label": "Centered" }, { "value": "left", "label": "Left" } ] },
+    { "key": "rule", "label": "Line under the letterhead", "type": "choice", "default": "thin",
+      "options": [ { "value": "none", "label": "None" }, { "value": "thin", "label": "Thin" }, { "value": "double", "label": "Double" }, { "value": "bold", "label": "Bold" } ] },
+    { "key": "size", "label": "Text size", "type": "range", "min": 10, "max": 13, "step": 0.5, "unit": "pt", "default": 11.5 }
+  ],
+  "html": "<header class=\"ql-head\"><h1>{{penName}}</h1><p>{{contact}}</p></header><div class=\"ql-body\"><p class=\"ql-date\">{{date}}</p><p>{{agent}}</p><p>{{hook}}</p><p>{{pitch}}</p><p>{{bio}}</p><p>{{closing}}</p><p class=\"ql-sign\">{{signoff}}<br><br>{{signature}}</p></div>",
+  "css": ".t-page{background:#fff;color:#1d1b18;padding:.9in 1in;font-family:var(--font);font-size:var(--size);line-height:1.45}.ql-head{padding-bottom:.12in;margin-bottom:.3in}.align-center .ql-head{text-align:center}.ql-head h1{font-size:22pt;font-weight:500;margin:0;color:var(--accent);letter-spacing:.03em}.ql-head p{margin:.04in 0 0;font-size:10pt;opacity:.8}.rule-thin .ql-head{border-bottom:1px solid var(--accent)}.rule-double .ql-head{border-bottom:4px double var(--accent)}.rule-bold .ql-head{border-bottom:3px solid var(--accent)}.ql-body p{margin:0 0 .14in}.ql-date:empty{display:none}.ql-sign{margin-top:.2in!important}"
+}

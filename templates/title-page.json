@@ -1,0 +1,27 @@
+{
+  "id": "title-page",
+  "name": "Manuscript title page",
+  "description": "The standard first page agents and editors expect, with contact details, word count and title.",
+  "page": { "width": 8.5, "height": 11 },
+  "fields": [
+    { "key": "legalName", "label": "Legal name", "type": "text", "default": "Kayla Nielsen" },
+    { "key": "address", "label": "Mailing address", "type": "textarea", "default": "Street address\nCity, State ZIP" },
+    { "key": "phone", "label": "Phone", "type": "text", "default": "" },
+    { "key": "email", "label": "Email", "type": "text", "default": "" },
+    { "key": "wordCount", "label": "Word count line", "type": "text", "default": "About 80,000 words", "source": "project.words" },
+    { "key": "title", "label": "Title", "type": "text", "default": "Working Title", "source": "project.title" },
+    { "key": "penName", "label": "Byline", "type": "text", "default": "K.E. Nielsen", "source": "prefs.penName" },
+    { "key": "genre", "label": "Genre line (optional)", "type": "text", "default": "" }
+  ],
+  "design": [
+    { "key": "font", "label": "Typeface", "type": "choice", "default": "times",
+      "options": [ { "value": "times", "label": "Times New Roman (standard)" }, { "value": "courier", "label": "Courier (classic)" } ] },
+    { "key": "titleCase", "label": "Title style", "type": "choice", "default": "caps",
+      "options": [ { "value": "caps", "label": "ALL CAPITALS" }, { "value": "asTyped", "label": "As typed" } ] },
+    { "key": "border", "label": "Border", "type": "choice", "default": "none",
+      "options": [ { "value": "none", "label": "None (standard)" }, { "value": "thin", "label": "Thin line" } ] },
+    { "key": "borderColor", "label": "Border color", "type": "color", "default": "#2b2620" }
+  ],
+  "html": "<div class=\"tp\"><div class=\"tp-top\"><div class=\"tp-contact\">{{legalName}}<br>{{address}}<br>{{phone}}<br>{{email}}</div><div class=\"tp-wc\">{{wordCount}}</div></div><div class=\"tp-mid\"><h1>{{title}}</h1><p class=\"tp-genre\">{{genre}}</p><p>by</p><p>{{penName}}</p></div></div>",
+  "css": ".t-page{background:#fff;color:#000;padding:1in;font-size:12pt;line-height:1.2}.font-times .t-page,.font-times{font-family:'Times New Roman',Times,serif}.font-courier .t-page,.font-courier{font-family:'Courier Prime','Courier New',monospace}.tp{height:100%;display:flex;flex-direction:column}.border-thin .tp{border:1px solid var(--borderColor);padding:.3in;margin:-.3in}.tp-top{display:flex;justify-content:space-between;gap:.5in}.tp-wc{text-align:right;white-space:nowrap}.tp-mid{flex:1;display:flex;flex-direction:column;justify-content:center;text-align:center;padding-bottom:1.5in}.tp-mid h1{font-size:12pt;font-weight:400;margin:0 0 12pt}.titleCase-caps .tp-mid h1{text-transform:uppercase}.tp-mid p{margin:0 0 12pt}.tp-genre:empty{display:none}"
+}

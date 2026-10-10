@@ -1,0 +1,26 @@
+{
+  "id": "scripture-card",
+  "name": "Scripture card",
+  "description": "A framed verse for a journal, a gift, or a social post. Change the border, colors and lettering.",
+  "page": { "width": 5, "height": 7 },
+  "fields": [
+    { "key": "verse", "label": "Verse", "type": "textarea", "default": "Commit to the LORD whatever you do, and he will establish your plans." },
+    { "key": "reference", "label": "Reference", "type": "text", "default": "Proverbs 16:3" },
+    { "key": "caption", "label": "Small line at the bottom (optional)", "type": "text", "default": "" }
+  ],
+  "design": [
+    { "key": "border", "label": "Border", "type": "choice", "default": "double",
+      "options": [ { "value": "none", "label": "None" }, { "value": "thin", "label": "Thin line" }, { "value": "double", "label": "Double line" }, { "value": "corners", "label": "Corner ornaments" } ] },
+    { "key": "borderColor", "label": "Border color", "type": "color", "default": "#9c7629" },
+    { "key": "borderWidth", "label": "Border thickness", "type": "range", "min": 1, "max": 6, "step": 0.5, "unit": "px", "default": 1.5 },
+    { "key": "inset", "label": "Space around the border", "type": "range", "min": 0.15, "max": 0.6, "step": 0.05, "unit": "in", "default": 0.3 },
+    { "key": "paper", "label": "Paper color", "type": "color", "default": "#fbf6ea", "swatches": ["#fbf6ea", "#ffffff", "#e9efe6", "#f6e7e4", "#e8ecf2", "#2f4636"] },
+    { "key": "ink", "label": "Text color", "type": "color", "default": "#2b2620", "swatches": ["#2b2620", "#2f4636", "#6b2f2a", "#2d3a52", "#fbf6ea"] },
+    { "key": "font", "label": "Lettering", "type": "font", "default": "Cormorant Garamond" },
+    { "key": "size", "label": "Verse size", "type": "range", "min": 14, "max": 40, "step": 1, "unit": "pt", "default": 24 },
+    { "key": "ornament", "label": "Ornament", "type": "choice", "default": "leaf",
+      "options": [ { "value": "leaf", "label": "❦" }, { "value": "star", "label": "✦" }, { "value": "cross", "label": "✝" }, { "value": "none", "label": "None" } ] }
+  ],
+  "html": "<div class=\"sc-frame\"><div class=\"sc-inner\"><span class=\"sc-orn\"></span><p class=\"sc-verse\">{{verse}}</p><p class=\"sc-ref\">{{reference}}</p></div><p class=\"sc-cap\">{{caption}}</p><i class=\"c1\"></i><i class=\"c2\"></i><i class=\"c3\"></i><i class=\"c4\"></i></div>",
+  "css": ".t-page{background:var(--paper);color:var(--ink);font-family:var(--font);padding:var(--inset)}.sc-frame{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:.45in .4in}.border-thin .sc-frame{border:var(--borderWidth) solid var(--borderColor)}.border-double .sc-frame{border:calc(var(--borderWidth) * 2.5) double var(--borderColor)}.border-corners .sc-frame i{position:absolute;width:.5in;height:.5in;border:var(--borderWidth) solid var(--borderColor)}.sc-frame i{display:none}.border-corners .sc-frame i{display:block}.c1{top:0;left:0;border-right:0!important;border-bottom:0!important}.c2{top:0;right:0;border-left:0!important;border-bottom:0!important}.c3{bottom:0;left:0;border-right:0!important;border-top:0!important}.c4{bottom:0;right:0;border-left:0!important;border-top:0!important}.sc-orn{display:block;color:var(--borderColor);font-size:20pt;margin-bottom:.15in}.ornament-leaf .sc-orn::before{content:'❦'}.ornament-star .sc-orn::before{content:'✦'}.ornament-cross .sc-orn::before{content:'✝'}.sc-verse{font-size:var(--size);line-height:1.35;margin:0 0 .2in;font-style:italic}.sc-ref{font-size:12pt;letter-spacing:.08em;margin:0;color:var(--borderColor)}.sc-cap{position:absolute;bottom:.2in;left:0;right:0;font-size:9pt;margin:0;opacity:.75}"
+}
